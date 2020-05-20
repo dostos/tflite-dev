@@ -1,0 +1,1 @@
+adb push .//models //data/local/tmp
