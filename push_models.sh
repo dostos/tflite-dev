@@ -1,1 +1,1 @@
-adb push .//models //data/local/tmp
+adb push .//models /data/local/tmp
