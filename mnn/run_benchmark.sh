@@ -1,0 +1,1 @@
+adb -d shell LD_LIBRARY_PATH=//data\\local\\tmp\\mnn\\bin //data\\local\\tmp\\mnn\\bin\\benchmark.out //data\\local\\tmp\\mnn\\model ${@:1} 
