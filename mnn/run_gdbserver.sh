@@ -1,0 +1,2 @@
+adb -d forward --remove-all     
+adb -d shell LD_LIBRARY_PATH=//data\\local\\tmp\\mnn\\bin //data\\local\\tmp\\gdbserver --remote-debug --debug localhost:5555 //data\\local\\tmp\\mnn\\bin\\benchmark.out //data\\local\\tmp\\mnn\\model 5 5 5 5 & adb -d forward tcp:5555 tcp:5555
