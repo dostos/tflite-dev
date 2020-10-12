@@ -1,0 +1,2 @@
+adb -d forward --remove-all     
+adb -d shell //data\\local\\tmp\\gdbserver --once localhost:5555 //data\\local\\tmp\\benchmark_model --graph=//data\\local\\tmp\\int8\\lite-model_east-text-detector_int8_1.tflite
