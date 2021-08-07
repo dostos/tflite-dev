@@ -1,0 +1,28 @@
+{
+    "models": [
+      {
+        "graph": "/data/local/tmp/models/mobilenet_v2_1.0_224_1_default_1.tflite",
+        "batch_size": 1,
+        "period_ms": 5,
+        "device": 1
+      }
+    ],
+    "cpu_masks": "ALL",
+    "planner_cpu_masks": "PRIMARY",
+    "workers": {
+      "CPU" : { 
+        "num_threads": 3,
+        "cpu_masks": "BIG"
+      }
+    },
+    "num_threads": -1,
+    "running_time_ms": 100000,
+    "log_path": "/data/local/tmp/model_execution_log.csv",
+    "log_processor_frequency": true,
+    "planner": 0,
+    "schedule_window_size": 100, 
+    "profiling_smoothing_constant": 0.8,
+    "execution_mode": "stream",
+    "allow_work_steal": false,
+    "model_profile": "/data/local/tmp/model_profile_subgraph.json"
+  }
