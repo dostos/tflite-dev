@@ -1,28 +1,57 @@
 {
-    "models": [
-      {
-        "graph": "/data/local/tmp/models/mobilenet_v2_1.0_224_1_default_1.tflite",
-        "batch_size": 1,
-        "period_ms": 5,
-        "device": 1
-      }
-    ],
-    "cpu_masks": "ALL",
-    "planner_cpu_masks": "PRIMARY",
-    "workers": {
-      "CPU" : { 
-        "num_threads": 3,
-        "cpu_masks": "BIG"
-      }
+  "models": [
+    {
+      "graph": "/data/local/tmp/models/ICN_quant.tflite",
+      "period_ms": 10
     },
-    "num_threads": -1,
-    "running_time_ms": 100000,
-    "log_path": "/data/local/tmp/model_execution_log.csv",
-    "log_processor_frequency": true,
-    "planner": 0,
-    "schedule_window_size": 100, 
-    "profiling_smoothing_constant": 0.8,
-    "execution_mode": "stream",
-    "allow_work_steal": false,
-    "model_profile": "/data/local/tmp/model_profile_subgraph.json"
-  }
+    {
+      "graph": "/data/local/tmp/models/arc_mbv2_quant.tflite",
+      "period_ms": 10
+    },
+    {
+      "graph": "/data/local/tmp/models/arc_res50_quant.tflite",
+      "period_ms": 10
+    },
+    {
+      "graph": "/data/local/tmp/models/retinaface_mbv2_quant_160.tflite",
+      "period_ms": 10
+    }
+  ],
+  "log_path": "/data/local/tmp/log.csv",
+  "schedulers": [
+    4
+  ],
+  "minimum_subgraph_size": 7,
+  "subgraph_preparation_type": "no_fallback_subgraph",
+  "execution_mode": "periodic",
+  "cpu_masks": "ALL",
+  "num_threads": 1,
+  "planner_cpu_masks": "PRIMARY",
+  "workers": [
+    {
+      "device": "CPU",
+      "num_threads": 1,
+      "cpu_masks": "BIG"
+    },
+    {
+      "device": "CPU",
+      "num_threads": 1,
+      "cpu_masks": "BIG"
+    },
+    {
+      "device": "CPU",
+      "num_threads": 1,
+      "cpu_masks": "BIG"
+    }
+  ],
+  "running_time_ms": 60,
+  "profile_smoothing_factor": 0.1,
+  "workload": "data/local/tmp/workload/ytfaces_frames_0_10_0.2_1.json",
+  "model_profile": "/data/local/tmp/profile.json",
+  "model_subgraphs": "/data/local/tmp/subgraph_no_fallback.json",
+  "profile_warmup_runs": 10,
+  "profile_num_runs": 20,
+  "allow_work_steal": true,
+  "availability_check_interval_ms": 30000,
+  "schedule_window_size": 10
+}                                         
